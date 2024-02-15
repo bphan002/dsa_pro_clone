@@ -1,4 +1,4 @@
-## Week 0, Day 2
+# Week 0, Day 2
 
 ## Big O Notation
 Please familiarize yourself with Big O complexity analysis, how it works, and how they are relative to one another.
