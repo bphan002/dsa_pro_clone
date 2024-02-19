@@ -25,5 +25,11 @@
 
 class Solution:
     def buildArray(self, nums):
-        # Remove pass and write code here
-        pass
+        N = len(nums)
+        ans = [None]*N
+
+        for i in range(N):
+            ans[i] = nums[nums[i]]
+            
+        return ans
+        
