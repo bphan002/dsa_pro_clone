@@ -32,6 +32,7 @@ class TestExample(unittest.TestCase):
         self.run_test([44], 701408733)
 
     def tearDown(self):
+        print(self)
         result = self.defaultTestResult()
         self._feedErrorsToResult(result, self._outcome.errors)
         if not result.wasSuccessful():
