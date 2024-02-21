@@ -1,4 +1,4 @@
-# Product of Array Except Self Constraints and Hints
+# Two-Sum Constraints and Hints
 
 ## Constraints
 -   `2 <= nums.length <= 10^4`

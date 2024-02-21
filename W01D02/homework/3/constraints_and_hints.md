@@ -1,4 +1,4 @@
-# Product of Array Except Self Constraints and Hints
+# Verifying an Alien Dictionary Constraints and Hints
 
 ## Constraints
 -   `1 <= words.length <= 100`
