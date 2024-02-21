@@ -1,4 +1,4 @@
-# Spiral Matrix Constraints and Hints
+# Valid Sudoku Constraints and Hints
 
 ## Constraints
 -   `board.length == 9`

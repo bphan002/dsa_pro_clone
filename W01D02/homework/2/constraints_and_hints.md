@@ -1,4 +1,4 @@
-# Product of Array Except Self Constraints and Hints
+# Group the People Given the Group Size They Belong To Constraints and Hints
 
 ## Constraints
 -   `groupSizes.length == n`
