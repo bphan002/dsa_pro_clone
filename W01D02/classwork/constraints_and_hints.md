@@ -12,4 +12,4 @@
 > There are 9 rows, 9 columns, and 9 boxes. This means that we would need 27 sets! Is there perhaps a way we can organize these sets?
 
 ## Hint #3
-> It is pretty easy to uniquely identify each row and column by index. However, uniquely identifying each box is going to require that we check whether he column and row indices fall into certain ranges.
+> It is pretty easy to uniquely identify each row and column by index. However, uniquely identifying each box is going to require that we check whether the column and row indices fall into certain ranges.
