@@ -1,4 +1,4 @@
 class Solution:
-    def isValidSudoku(self, board):
+    def spiralOrder(self, matrix):
         # Remove pass and write code here
         pass
