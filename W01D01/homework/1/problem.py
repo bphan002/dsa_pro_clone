@@ -16,7 +16,7 @@ class Solution:
         #or res.extend(hashmap.values())
         # or.... return list(hashmap.values())       
         #.values create a view object
-        return list(hashmap.values())
+        return hashmap.values()
     def abc_order(self,word):
         word_list = list(word)
         word_list.sort()
