@@ -1,7 +1,7 @@
 import unittest
 from timeout_decorator import timeout
 from colorama import Fore, Style, init
-from fibonacci import Solution
+from fibonacci import solution
 
 
 fibonacci = Solution.fibonacci
