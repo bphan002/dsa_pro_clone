@@ -3,7 +3,7 @@ class Solution:
         
         l, r = 0, len(height)-1
         max_water = 0
-        count = 0
+
         while l < r:
             max_water = max(max_water, min(height[l], height[r]) * (r-l))
                 
