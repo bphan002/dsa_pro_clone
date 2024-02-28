@@ -1,4 +1,4 @@
 class Solution:
-    def fib(self, n):
+    def isValid(self, s):
         # Remove pass and write code here
         pass
