@@ -3,7 +3,7 @@ from timeout_decorator import timeout
 from colorama import Fore, Style, init
 from problem import Solution
 
-fib = Solution.fib
+isValid = Solution.isValid
 
 # Initialize colorama
 init(autoreset=True)
@@ -14,30 +14,21 @@ class TestExample(unittest.TestCase):
         solution = Solution()
 
         try:
-            self.assertEqual(fib(solution, *input_values), expected_value)
+            self.assertEqual(isValid(solution, *input_values), expected_value)
         except TimeoutError:
             self.fail()
 
     @timeout(2)
     def test_case_1(self):
-        self.run_test([2], 1)
+        self.run_test(["()"], True)
     
     @timeout(2)
     def test_case_2(self):
-        self.run_test([3], 2)
+        self.run_test(["()[]{}"], True)
 
     @timeout(2)
     def test_case_3(self):
-        self.run_test([5], 5)
-
-    @timeout(2)
-    def test_case_4(self):
-        self.run_test([15], 610)
-
-    @timeout(2)
-    def test_case_5(self):
-        self.run_test([45], 1134903170)
-        
+        self.run_test(["(]"], False)
 
     def tearDown(self):
         result = self.defaultTestResult()

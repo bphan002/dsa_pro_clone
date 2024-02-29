@@ -3,7 +3,7 @@ from timeout_decorator import timeout
 from colorama import Fore, Style, init
 from problem import Solution
 
-fib = Solution.fib
+climbStairs = Solution.climbStairs
 
 # Initialize colorama
 init(autoreset=True)
@@ -14,29 +14,29 @@ class TestExample(unittest.TestCase):
         solution = Solution()
 
         try:
-            self.assertEqual(fib(solution, *input_values), expected_value)
+            self.assertEqual(climbStairs(solution, *input_values), expected_value)
         except TimeoutError:
             self.fail()
 
     @timeout(2)
     def test_case_1(self):
-        self.run_test([2], 1)
+        self.run_test([2], 2)
     
     @timeout(2)
     def test_case_2(self):
-        self.run_test([3], 2)
+        self.run_test([3], 3)
 
     @timeout(2)
     def test_case_3(self):
-        self.run_test([5], 5)
+        self.run_test([5], 8)
 
     @timeout(2)
     def test_case_4(self):
-        self.run_test([15], 610)
+        self.run_test([15], 987)
 
     @timeout(2)
     def test_case_5(self):
-        self.run_test([45], 1134903170)
+        self.run_test([45], 1836311903)
         
 
     def tearDown(self):

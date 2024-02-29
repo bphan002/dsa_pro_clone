@@ -1,4 +1,4 @@
 class Solution:
-    def fib(self, n):
+    def climbStairs(self, n):
         # Remove pass and write code here
         pass
