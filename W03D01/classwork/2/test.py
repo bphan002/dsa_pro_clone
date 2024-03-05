@@ -1,7 +1,7 @@
 import unittest
 from timeout_decorator import timeout
 from colorama import Fore, Style, init
-from problem import Solution
+from solution import Solution
 
 searchMatrix = Solution.searchMatrix
 
