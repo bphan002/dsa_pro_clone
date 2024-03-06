@@ -16,13 +16,7 @@ class Solution:
             else:
                 break
 
-        print(top, bottom)
-        # if top > bottom:
-        #     return False
-
-        # row = top + (bottom-top)//2
         left, right = 0, COLS-1
-
 
         while left <= right:
             mid = left + (right-left)//2
