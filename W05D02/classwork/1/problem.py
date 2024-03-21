@@ -1,10 +1,9 @@
 class ListNode:
-    def __init__(self, val, next=None, random=None):
+    def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-        self.random = random
 
 class Solution:
-    def copyRandomList(self, head):
+    def hasCycle(self, head):
         # Remove pass and write code here
         pass

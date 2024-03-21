@@ -3,7 +3,7 @@ from timeout_decorator import timeout
 from colorama import Fore, Style, init
 from problem import Solution
 
-removeNthFromEnd = Solution.removeNthFromEnd
+insert = Solution.insert
 
 # Initialize colorama
 init(autoreset=True)
@@ -13,7 +13,7 @@ class ListNode:
         self.val = val
         self.next = next
 
-def create_linked_list(arr):
+def create_cycle_linked_list(arr, pos):
     if not arr:
         return None
     
@@ -24,9 +24,18 @@ def create_linked_list(arr):
         current.next = ListNode(arr[i])
         current = current.next
     
+    if pos == -1:
+        return head
+    
+    last_node = current
+    cycle_node = head
+    for i in range(pos):
+        cycle_node = cycle_node.next
+    last_node.next = cycle_node
+    
     return head
 
-def compare_lists(head1, head2):
+def compare_cycle_lists(head1, head2):
     curr1 = head1
     curr2 = head2
 
@@ -35,57 +44,49 @@ def compare_lists(head1, head2):
             return False
         curr1 = curr1.next
         curr2 = curr2.next
+        if curr1.next == head1 or curr2.next == head2:
+            break
 
-    if curr1 != None or curr2 != None:
+    if curr1.next.val != curr2.next.val:
         return False
-
     return True
-
-def print_linked_list(head):
-    values = []
-    current = head
-    while current:
-        values.append(current.val)
-        current = current.next
-    return f"Linked List output values: {values}"
-
+    
 class TestExample(unittest.TestCase):
 
 
     def run_test(self, input_values, expected_value):
         solution = Solution()
-        output = removeNthFromEnd(solution, *input_values)
+        soln = create_cycle_linked_list(expected_value,0)
 
         try:
-            print(print_linked_list(output))
-            self.assertTrue(compare_lists(output, expected_value))
+            self.assertTrue(compare_cycle_lists(insert(solution, *input_values), soln))
         except TimeoutError:
             self.fail()
 
     @timeout(2)
     def test_case_1(self):
-        print('Test Case 1:')
-        self.run_test([create_linked_list([1,2,3,4,5]), 2], create_linked_list([1,2,3,5]))
+        self.run_test([create_cycle_linked_list([3,4,1],0),2], [3,4,1,2])
     
     @timeout(2)
     def test_case_2(self):
-        print('Test Case 2:')
-        self.run_test([create_linked_list([1]),1], create_linked_list([]))
+        self.run_test([create_cycle_linked_list([],-1),1], [1])
 
     @timeout(2)
     def test_case_3(self):
-        print('Test Case 3:')
-        self.run_test([create_linked_list([1,2]),1], create_linked_list([1]))
+        self.run_test([create_cycle_linked_list([1],0),0], [1,0])
         
     @timeout(2)
     def test_case_4(self):
-        print('Test Case 4:')
-        self.run_test([create_linked_list([26, 32, 84, 91, 15, 73, 26, 68, 49, 26]),3], create_linked_list([26, 32, 84, 91, 15, 73, 26, 49, 26]))
+        self.run_test([create_cycle_linked_list([1,3,5],0),4], [1,3,4,5])
+
+    @timeout(2)
+    def test_case_5(self):
+        self.run_test([create_cycle_linked_list([3,3,3,3],0),4], [3,3,3,3,4])
         
 
     def tearDown(self):
         result = self.defaultTestResult()
-        # self._feedErrorsToResult(result, self._outcome.errors)
+        self._feedErrorsToResult(result, self._outcome.errors)
         if not result.wasSuccessful():
             print(f"{Fore.RED}{self._testMethodName} FAILED{Style.RESET_ALL}")
         else:
