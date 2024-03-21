@@ -8,15 +8,16 @@ class Solution:
         odd = 0
         even = 0
         
-        even_node = head
+        curr = head
         
-        while even_node:
-            if even_node.val > even_node.next.val:
+        while curr:
+            if curr.val > curr.next.val:
                 even += 1
-            else:
+            elif curr.val < curr.next.val:
                 odd += 1
-
-            even_node = even_node.next.next 
+            else:
+                continue
+            curr = curr.next.next 
         
         if odd > even:
             return "Odd"

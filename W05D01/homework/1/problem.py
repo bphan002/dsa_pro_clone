@@ -6,4 +6,14 @@ class ListNode:
 class Solution:
     def reverseList(self, head):
         # Remove pass and write code here
-        pass
+        prev = None
+        dummyHead = ListNode()
+        curr = head
+
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+
+        return prev
