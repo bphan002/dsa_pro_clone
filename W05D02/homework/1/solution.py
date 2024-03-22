@@ -28,6 +28,8 @@ class Solution:
             if nodes == half:
                 head2 = current.next
                 current.next = head
+                #tail is initially None
+                #so you set 
                 tail.next = head2
                 return [head, head2]
             
